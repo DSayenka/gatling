@@ -7,7 +7,7 @@ import scenarios.ShopizerScenario.{scnShopizer, _}
 class PerfTestSimulation extends Simulation {
 
   setUp(
-      scnShopizer.inject(atOnceUsers(users = 100))
+      scnShopizer.inject(constantConcurrentUsers(users).during(10 minutes))
   ).protocols(httpProtocol)
 }
 
